@@ -1,0 +1,46 @@
+<div class="container table-responsive">
+  <table class="table align-middle table-bordered align-middle mb-0 bg-white">
+    <thead class="bg-light table-dark">
+    <tr>
+      <th>Member</th>
+      <th>Accession Date</th>
+      <th>Nationality</th>
+      <th>ID Type</th>
+      <th>Identity Number</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let member of members">
+      <td>
+        <div class="d-flex align-items-center">
+          <img src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+            alt=""
+            style="width: 45px; height: 45px"
+            class="rounded-circle"/>
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{member.firstName}} {{member.lastName}}</p>
+            <p class="text-muted mb-0">Member Number : {{member.memberNumber}}</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{member.accessionDate}}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{member.nationality}}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{member.identityDocument}}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{member.identityNumber}}</p>
+      </td>
+      <td>
+        <button type="button" class="btn btn-dark">Register</button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

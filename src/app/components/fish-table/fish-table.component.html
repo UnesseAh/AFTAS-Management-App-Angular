@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Average Weight</th>
+      <th scope="col">Level Code</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fish of fishes">
+      <th scope="row">{{fish.name}}</th>
+      <th scope="row">{{fish.averageWeight}}</th>
+      <th scope="row">{{fish.LevelCode}}</th>
+      <td>
+        <button type="button" class="btn btn-success">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Competition</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let competition of competitions">
+        <td>
+          <div class="d-flex align-items-center">
+            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+            <div class="ms-3">
+              <p class="mb-1">Code: <span class="fw-bold">{{competition.code}}</span></p>
+              <p class="mb-1">Participants: <span class="fw-bold">{{competition.numberOfParticipants}}</span></p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-0">{{competition.location}}</p>
+        </td>
+        <td>
+          <p class="fw-normal mb-0">{{competition.date}}</p>
+        </td>
+        <td>
+          <div class="ms-3">
+            <p class="mb-0">Start Time: <span class="fw-bold">{{competition.startTime}}</span></p>
+            <p class="mb-0">End Time: <span class="fw-bold">{{competition.endTime}}</span></p>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-0">{{competition.amount}} DH</p>
+        </td>
+        <td class="d-flex justify-content-around">
+          <button type="button" class="btn btn-warning">Update</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
