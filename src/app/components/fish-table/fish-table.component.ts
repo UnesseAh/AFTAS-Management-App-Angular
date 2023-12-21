@@ -28,6 +28,7 @@ export class FishTableComponent implements OnInit {
   saveFish(){
     this.fishService.createFish(this.fish).subscribe(data => {
       console.log(data)
+      this.getFishes();
     }, error => {
       console.log(error)
     });

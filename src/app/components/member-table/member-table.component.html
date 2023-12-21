@@ -1,4 +1,15 @@
 <div class="container">
+  <div *ngIf="errorMessages">
+    <div class="alert alert-danger alert-dismissible fade show my-4" role="alert" *ngFor="let error of errorMessages">
+      <strong>Error :</strong> {{error}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="alert alert-success alert-dismissible fade show my-4" role="alert"  *ngIf="successMessages">
+    <strong>Success :</strong> {{ successMessages}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
   <div class="card shadow my-4">
     <div class="card-header py-3 bg-dark d-flex align-items-center justify-content-between">
       <h6 class="m-0 fw-bold text-light">Members</h6>
@@ -99,7 +110,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
           </div>
         </form>
       </div>

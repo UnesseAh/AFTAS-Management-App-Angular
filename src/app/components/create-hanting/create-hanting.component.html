@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div  *ngIf="errorMessages" >
+        <div class="alert alert-danger alert-dismissible fade show" *ngFor="let error of errorMessages" role="alert">
+            <strong>Error!</strong> {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="successMessages">
+        <strong>Error!</strong> {{ successMessages  }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="card shadow">
+        <div class="card-header py-3 bg-dark m-0 fw-bold text-light">
+            Creat New Hunting
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="createHunting()">
+                <div class="mb-3">
+                    <label for="Date-input">Competition Code </label>
+                    <input type="text"  name="competitionCode" [(ngModel)]="hunt.competitionCode" class="form-control" id="Date-input" />
+                </div>
+                <div class="mb-3">
+                    <label for="memberNumber">Member</label>
+                    <input type="number" name="memberNumber" [(ngModel)]="hunt.memberNumber" id="memberNumber" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <label for="fishName">fishName</label>
+                    <input type="text" name="fishName" [(ngModel)]="hunt.fishName" id="fishName" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="weight">weight</label>
+                    <input type="number" name="weight" [(ngModel)]="hunt.weight" id="weight" class="form-control" >
+                </div>
+                <div class="d-flex justify-content-center  py-3">
+                    <button class="btn btn-primary">Create Hunting</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

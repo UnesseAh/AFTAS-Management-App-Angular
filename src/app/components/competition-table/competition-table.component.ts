@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CompetitionService} from "../../services/competition.service";
-import {Router} from "@angular/router";
+import { PageEvent } from '@angular/material/paginator';
 import {Competition} from "../../model/competition.model";
 
 
@@ -14,6 +14,13 @@ export class CompetitionTableComponent implements OnInit {
 
   competitions : Competition[] | undefined;
   competition : any = {};
+  errorMessages:any
+  allErrors:any[]=[]
+  successMessages:string=''
+  pageSizeOptions: number[] = [5, 10, 20];
+  pageSize: number = 5;
+  pageIndex: number = 0;
+  totalCompetitions: number = 0;
 
   constructor(private competitionService : CompetitionService) {
   }
@@ -23,17 +30,27 @@ export class CompetitionTableComponent implements OnInit {
     this.getCompetitions();
   }
 
-  private getCompetitions(){
-    this.competitionService.getCompetitions().subscribe(data => {
-      this.competitions = data.data;
-    })
+  getCompetitions() {
+    this.competitionService
+        .getCompetitions(this.pageIndex, this.pageSize)
+        .subscribe(
+            (response) => {
+              this.competitions = response.data;
+              this.totalCompetitions = response.data.length;
+            },
+            (error) => {
+              console.error('Error fetching Competitions:', error);
+            }
+        );
   }
 
   saveCompetition(){
     this.competitionService.creatCompetition(this.competition).subscribe(data => {
+      this.getCompetitions();
       console.log(data)
+      this.successMessages ="The Competition Has been Added Successfully"
     }, error => {
-      console.log(error)
+      this.errorMessages = error.error
     })
   }
 
@@ -44,4 +61,9 @@ export class CompetitionTableComponent implements OnInit {
     })
   }
 
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getCompetitions();
+  }
 }

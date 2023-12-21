@@ -28,6 +28,7 @@ export class LevelTableComponent implements OnInit{
   saveLevel(){
     console.log(this.level)
     this.levelService.createLevel(this.level).subscribe(data => {
+      this.getLevels();
       console.log(data)
     }, error => {
       console.log(error)

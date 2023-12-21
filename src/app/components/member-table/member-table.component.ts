@@ -12,6 +12,10 @@ export class MemberTableComponent implements OnInit {
     members : Member[] | undefined;
     member : any = {};
     identityDocument : string = "";
+
+    errorMessages : string = "";
+    successMessages : string = "";
+
     constructor(private memberService : MemberService) {}
 
     ngOnInit() : void {
@@ -28,8 +32,11 @@ export class MemberTableComponent implements OnInit {
     saveMember(){
         this.member['identityDocument'] = this.identityDocument;
         this.memberService.createMember(this.member).subscribe(data => {
-            console.log(data)
+            console.log(data);
+            this.getMembers();
+            this.successMessages = "Member created successfully";
         }, error => {
+            this.errorMessages = error.error;
             console.log(error)
         })
     }

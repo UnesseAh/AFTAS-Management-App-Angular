@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div *ngIf="errorMessages">
+        <div class="alert alert-danger alert-dismissible fade show my-4" *ngFor="let error of errorMessages" role="alert" >
+            <strong>Error!</strong> {{error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show my-4" *ngIf="successMessages"  role="alert" >
+        <strong>Success!</strong> {{successMessages}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="card shadow">
+        <div class="card-header py-3 bg-dark m-0 fw-bold text-light">
+            Register Member
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="registerMember()">
+                <div class="mb-3">
+                    <label for="Date-input">Competition Code </label>
+                    <input type="text"  name="competitionCode" [(ngModel)]="registeringData.competitionCode"  class="form-control" id="Date-input" />
+                </div>
+                <div class="mb-3">
+                    <label for="memberNumber">Member</label>
+                    <input type="number" name="memberNumber" [(ngModel)]="registeringData.memberNumber" id="memberNumber" class="form-control" >
+                </div>
+                <div class="d-flex justify-content-center  py-3">
+                    <button class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
