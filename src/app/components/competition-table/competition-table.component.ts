@@ -13,6 +13,7 @@ import {Competition} from "../../model/competition.model";
 export class CompetitionTableComponent implements OnInit {
 
   competitions : Competition[] | undefined;
+  competition : any = {};
 
   constructor(private competitionService : CompetitionService) {
   }
@@ -28,6 +29,13 @@ export class CompetitionTableComponent implements OnInit {
     })
   }
 
+  saveCompetition(){
+    this.competitionService.creatCompetition(this.competition).subscribe(data => {
+      console.log(data)
+    }, error => {
+      console.log(error)
+    })
+  }
 
 
    deleteCompetition(id : string) {
@@ -35,8 +43,5 @@ export class CompetitionTableComponent implements OnInit {
       console.log(data);
     })
   }
-
-
-
 
 }

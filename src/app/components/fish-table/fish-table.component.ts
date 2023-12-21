@@ -7,8 +7,11 @@ import {Fish} from "../../model/fish.model";
   templateUrl: './fish-table.component.html',
   styleUrls: ['./fish-table.component.css']
 })
-export class FishTableComponent implements OnInit{
+export class FishTableComponent implements OnInit {
+
   fishes : Fish[] | undefined;
+  fish : any = {};
+
   constructor(private fishService : FishService) { }
 
   ngOnInit() {
@@ -20,6 +23,14 @@ export class FishTableComponent implements OnInit{
       this.fishes = data.data;
       console.log(data);
     })
+  }
+
+  saveFish(){
+    this.fishService.createFish(this.fish).subscribe(data => {
+      console.log(data)
+    }, error => {
+      console.log(error)
+    });
   }
 
 }

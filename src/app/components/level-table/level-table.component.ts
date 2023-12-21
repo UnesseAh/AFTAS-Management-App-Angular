@@ -9,17 +9,29 @@ import {Level} from "../../model/level.model";
 })
 export class LevelTableComponent implements OnInit{
   levels : Level[] | undefined;
+  level : any = {};
+
   constructor(private levelService : LevelService) {
   }
+
   ngOnInit() {
     this.getLevels()
   }
 
-  private getLevels(){
+  getLevels(){
     this.levelService.getLevels().subscribe(data => {
       this.levels = data.data;
       console.log(data)
     })
+  }
+
+  saveLevel(){
+    console.log(this.level)
+    this.levelService.createLevel(this.level).subscribe(data => {
+      console.log(data)
+    }, error => {
+      console.log(error)
+    });
   }
 
 }

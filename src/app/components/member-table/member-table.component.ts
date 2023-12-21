@@ -10,6 +10,8 @@ import {Member} from "../../model/member.model";
 export class MemberTableComponent implements OnInit {
 
     members : Member[] | undefined;
+    member : any = {};
+    identityDocument : string = "";
     constructor(private memberService : MemberService) {}
 
     ngOnInit() : void {
@@ -23,5 +25,12 @@ export class MemberTableComponent implements OnInit {
       })
     }
 
-
+    saveMember(){
+        this.member['identityDocument'] = this.identityDocument;
+        this.memberService.createMember(this.member).subscribe(data => {
+            console.log(data)
+        }, error => {
+            console.log(error)
+        })
+    }
 }
