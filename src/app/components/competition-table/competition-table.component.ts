@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {Competition} from "../../model/competition.model";
 
 
+
 @Component({
   selector: 'app-competition-table',
   templateUrl: './competition-table.component.html',
@@ -34,5 +35,8 @@ export class CompetitionTableComponent implements OnInit {
       console.log(data);
     })
   }
+
+
+
 
 }

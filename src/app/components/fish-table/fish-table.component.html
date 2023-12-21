@@ -1,23 +1,40 @@
 <div class="container">
-  <table class="table table-dark table-striped table-hover">
-    <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Average Weight</th>
-      <th scope="col">Level Code</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let fish of fishes">
-      <th scope="row">{{fish.name}}</th>
-      <th scope="row">{{fish.averageWeight}}</th>
-      <th scope="row">{{fish.LevelCode}}</th>
-      <td>
-        <button type="button" class="btn btn-success">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="card shadow my-4">
+    <div class="card-header py-3 bg-dark d-flex align-items-center justify-content-between">
+      <h6 class="m-0 fw-bold text-light">Fish</h6>
+      <button class="btn btn-primary fw-bold">Create Fish</button>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+          <tr>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Average Weight</th>
+            <th scope="col" class="text-center">Level Code</th>
+            <th scope="col" class="text-center">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let fish of fishes">
+            <th>
+              <div class="d-flex align-items-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHlcmASZgNOAA0mtIwob78oSLwGP1PybjDQ&usqp=CAU" alt="" style="width: 45px; height: 45px" class="rounded-circle">
+                <div class="ms-3">
+                  <p class="mb-1"><span class="fw-bold">{{fish.name}}</span></p>
+                </div>
+              </div>
+            </th>
+            <th scope="row" class="text-center">{{fish.averageWeight}}</th>
+            <th scope="row" class="text-center">{{fish.LevelCode}}</th>
+            <td class="text-center">
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+

@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {Competition} from "../../model/competition.model";
 
 
+
 @Component({
   selector: 'app-create-competition',
   templateUrl: './create-competition.component.html',
@@ -13,7 +14,8 @@ export class CreateCompetitionComponent implements OnInit{
 
   competition : Competition = new Competition();
 
-  constructor(private competitionService : CompetitionService, private router : Router) {
+  constructor(private competitionService : CompetitionService,
+              private router : Router) {
   }
 
   ngOnInit() : void{
@@ -31,5 +33,6 @@ export class CreateCompetitionComponent implements OnInit{
   redirectToCompetitionList(){
     this.router.navigate(['/competition']);
   }
+
 
 }
